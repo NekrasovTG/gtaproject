@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скачать GTA RolePlay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        :root {
+            --primary-blue: #2962ff;
+            --secondary-blue: #448aff;
+            --light-blue: #82b1ff;
+            --dark-blue: #1565c0;
+            --bg-color: #f8f9fa;
+            --text-color: #2c3e50;
+            --success-color: #00c853;
+            --warning-color: #ffd600;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header стили остаются теми же */
+
+        .download-hero {
+            padding-top: 100px;
+            min-height: 400px;
+            background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue));
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('path-to-pattern.png');
+            opacity: 0.1;
+            animation: backgroundMove 20s linear infinite;
+        }
+
+        .download-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .download-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            animation: fadeUpIn 0.8s ease-out;
+        }
+
+        .system-requirements {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: -50px auto 2rem;
+            max-width: 1000px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .req-column {
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+
+        .req-column:hover {
+            transform: translateY(-5px);
+        }
+
+        .req-column h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .req-list {
+            list-style: none;
+        }
+
+        .req-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .req-list li::before {
+            content: '•';
+            color: var(--primary-blue);
+            position: absolute;
+            left: 0;
+        }
+
+        .download-section {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .download-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .download-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .download-size {
+            color: #666;
+            margin: 1rem 0;
+        }
+
+        .download-button {
+            background: var(--primary-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            border: none;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .download-button:hover {
+            background: var(--secondary-blue);
+            transform: translateY(-2px);
+        }
+
+        .installation-guide {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .guide-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: transform 0.3s ease;
+        }
+
+        .guide-step:hover {
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            background: var(--primary-blue);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--success-color);
+            width: 0;
+            transition: width 0.3s ease;
+        }
+
+        @keyframes fadeUpIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes backgroundMove {
+            from { background-position: 0 0; }
+            to { background-position: 100% 100%; }
+        }
+
+        /* Медиа-запросы для адаптивности */
+        @media (max-width: 768px) {
+            .download-hero {
+                padding-top: 80px;
+            }
+
+            .system-requirements {
+                margin-top: -30px;
+                padding: 1rem;
+            }
+
+            .download-options {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-step {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="download-hero">
+        <div class="download-content">
+            <h1 class="download-title">Скачать GTA RolePlay</h1>
+            <p>Начни свое приключение прямо сейчас</p>
+        </div>
+    </section>
+
+    <div class="system-requirements">
+        <div class="req-column">
+            <h3>🖥️ Минимальные требования</h3>
+            <ul class="req-list">
+                <li>Windows 7/8/10 (64-bit)</li>
+                <li>Intel Core i5-4460 или AMD FX-6300</li>
+                <li>8 GB RAM</li>
+                <li>NVIDIA GTX 760 или AMD R7 260x</li>
+                <li>60 GB свободного места</li>
+            </ul>
+        </div>
+        <div class="req-column">
+            <h3>🚀 Рекомендуемые требования</h3>
+            <ul class="req-list">
+                <li>Windows 10 (64-bit)</li>
+                <li>Intel Core i7-4790K или AMD Ryzen 5 1600</li>
+                <li>16 GB RAM</li>
+                <li>NVIDIA GTX 1060 или AMD RX 480</li>
+                <li>60 GB SSD</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="download-section">
+        <h2>Выберите версию для загрузки</h2>
+        <div class="download-options">
+            <div class="download-card">
+                <h3>Стандартная версия</h3>
+                <p class="download-size">Размер: 45.3 GB</p>
+                <button class="download-button">Скачать</button>
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+            </div>
+            <div class="download-card">
+                <h3>Торрент версия</h3>
+                <p class="download-size">Размер: 45.3 GB</p>
+                <button class="download-button">Скачать торрент</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="installation-guide">
+        <h2>Инструкция по установке</h2>
+        <div class="guide-step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+                <h4>Скачайте установщик</h4>
+                <p>Выберите предпочтительный способ загрузки и дождитесь завершения скачивания</p>
+            </div>
+        </div>
+        <div class="guide-step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+                <h4>Запустите установщик</h4>
+                <p>Откройте скачанный файл и следуйте инструкциям установщика</p>
+            </div>
+        </div>
+        <div class="guide-step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+                <h4>Создайте аккаунт</h4>
+                <p>После установки создайте аккаунт или войдите в существующий</p>
+            </div>
+        </div>
+        <div class="guide-step">
+            <div class="step-number">4</div>
+            <div class="step-content">
+                <h4>Начните игру</h4>
+                <p>Запустите игру и погрузитесь в мир GTA RolePlay</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Анимация прогресс-бара при наведении
+        document.querySelectorAll('.download-button').forEach(button => {
+            button.addEventListener('mouseover', function() {
+                const card = this.closest('.download-card');
+                const progressFill = card.querySelector('.progress-fill');
+                if (progressFill) {
+                    progressFill.style.width = '100%';
+                }
+            });
+
+            button.addEventListener('mouseout', function() {
+                const card = this.closest('.download-card');
+                const progressFill = card.querySelector('.progress-fill');
+                if (progressFill) {
+                    progressFill.style.width = '0';
+                }
+            });
+        });
+
+        // Анимация появления элементов при скролле
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.download-card, .guide-step').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
