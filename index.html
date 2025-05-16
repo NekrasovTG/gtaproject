@@ -108,7 +108,7 @@
             width: 100%;
         }
 
-        /* Hero Section */
+        
         .hero {
             margin-top: 80px;
             min-height: calc(100vh - 80px);
@@ -159,7 +159,7 @@
             animation: fadeUpIn 1s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
         }
 
-        /* Button Styles */
+        
         .cta-button {
             background-color: var(--primary-blue);
             color: white;
@@ -181,7 +181,7 @@
             box-shadow: 0 6px 20px rgba(41, 98, 255, 0.4);
         }
 
-        /* Features Section */
+       
         .features {
             padding: clamp(2rem, 5vw, 4rem) 1rem;
             max-width: 1200px;
@@ -228,7 +228,7 @@
             color: #666;
         }
 
-        /* Footer */
+       
         .footer {
             background-color: var(--dark-blue);
             color: white;
@@ -237,7 +237,7 @@
             font-size: clamp(0.9rem, 1.5vw, 1rem);
         }
 
-        /* Animations */
+     
         @keyframes fadeUpIn {
             from {
                 opacity: 0;
@@ -255,7 +255,7 @@
             100% { transform: scale(1); }
         }
 
-        /* Mobile Navigation */
+      
         @media (max-width: 768px) {
             .nav-toggle {
                 display: block;
@@ -287,7 +287,7 @@
             }
         }
 
-        /* Accessibility */
+    
         @media (prefers-reduced-motion: reduce) {
             * {
                 animation-duration: 0.01ms !important;
@@ -347,7 +347,7 @@
     </footer>
 
     <script>
-        // Mobile Navigation
+      
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
 
@@ -355,7 +355,7 @@
             navLinks.classList.toggle('active');
         });
 
-        // Intersection Observer for feature cards
+       
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -371,7 +371,7 @@
             observer.observe(card);
         });
 
-        // Smooth scroll
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
